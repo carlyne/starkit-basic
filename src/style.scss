@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+
+    &.custom {
+        // width: 80% if needed on mobile
+        @media (min-width: 48rem) {
+           width: 80%; // change value here
+        }
+    }
+}
+

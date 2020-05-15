@@ -1,0 +1,23 @@
+{
+  "name": "startkit-basic",
+  "version": "1.0.0",
+  "description": "starter kit for simple project",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch src -o src/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlyne/startkit-basic.git"
+  },
+  "author": "Carly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlyne/startkit-basic/issues"
+  },
+  "homepage": "https://github.com/carlyne/startkit-basic#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
