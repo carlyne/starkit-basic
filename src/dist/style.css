@@ -21,9 +21,16 @@ body {
 .navbar {
   width: 100%;
   min-height: 75px;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: row;
   border: 1px solid red; }
+  @media (min-width: 48rem) {
+    .navbar.col {
+      flex-direction: row;
+      width: 25%;
+      min-height: 100vh; } }
 
 /*** Modifier Classes*/
 .r-pad {
@@ -32,7 +39,9 @@ body {
 .grid {
   display: flex;
   flex-wrap: nowrap; }
-  .grid.row {
-    flex-direction: row; }
-  .grid.col {
-    flex-direction: column; }
+
+.row {
+  flex-direction: row; }
+
+.col {
+  flex-direction: column; }

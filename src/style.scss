@@ -33,9 +33,20 @@ body {
 .navbar {
     width: 100%;
     min-height: 75px;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; // default direction
     border: 1px solid red;
+
+    &.col {
+        @media (min-width: $s-med) {
+            flex-direction: row;
+            width:25%;
+            min-height: 100vh;
+        }
+    }
+    
 }
 
 
@@ -47,12 +58,12 @@ body {
 .grid {
     display: flex;
     flex-wrap: nowrap;
+}
 
-    &.row {
-        flex-direction: row;
-    }
+.row {
+    flex-direction: row;
+}
 
-    &.col {
-        flex-direction: column;
-    }
+.col {
+    flex-direction: column;
 }
