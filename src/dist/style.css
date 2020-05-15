@@ -1,3 +1,7 @@
+/*** Custom  */
+/* media query */
+/*default sizes*/
+/*** Style */
 * {
   box-sizing: border-box; }
 
@@ -6,10 +10,29 @@ body {
   margin: 0 auto;
   padding: 0; }
 
+/*** Container Classes */
 .container {
   width: 100%;
-  margin: 0 auto;
-  padding: 20px; }
+  margin: 0 auto; }
   @media (min-width: 48rem) {
     .container.custom {
       width: 80%; } }
+
+.navbar {
+  width: 100%;
+  min-height: 75px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red; }
+
+/*** Modifier Classes*/
+.r-pad {
+  padding: 20px; }
+
+.grid {
+  display: flex;
+  flex-wrap: nowrap; }
+  .grid.row {
+    flex-direction: row; }
+  .grid.col {
+    flex-direction: column; }

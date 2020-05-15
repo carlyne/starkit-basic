@@ -1,3 +1,12 @@
+/*** Custom  */
+/* media query */
+$s-med: 48rem;
+
+/*default sizes*/
+$s-custom-container: 80%;
+$r-pad: 20px; 
+
+/*** Style */
 * {
     box-sizing: border-box;
 }
@@ -8,16 +17,42 @@ body {
     padding: 0;
 }
 
+/*** Container Classes */
 .container {
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
 
     &.custom {
         // width: 80% if needed on mobile
-        @media (min-width: 48rem) {
-           width: 80%; // change value here
+        @media (min-width: $s-med) {
+           width: $s-custom-container; // change value in custom var
         }
     }
 }
 
+.navbar {
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+}
+
+
+/*** Modifier Classes*/
+.r-pad {
+    padding: $r-pad;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &.row {
+        flex-direction: row;
+    }
+
+    &.col {
+        flex-direction: column;
+    }
+}
