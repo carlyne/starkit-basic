@@ -1,21 +1,26 @@
-/*** Custom  */
+/*** Custom  variables*/
 /* media query */
 $s-med: 48rem;
 
 /*default sizes*/
+$s-body: 100%;
 $s-custom-container: 80%;
 $r-pad: 20px; 
+$r-li-pad: 10px; 
 
-/*** Style */
+
+
+/*** Global */
 * {
     box-sizing: border-box;
 }
 
 body {
-    width: 100%;
+    width: $s-body;
     margin: 0 auto;
     padding: 0;
 }
+
 
 /*** Container Classes */
 .container {
@@ -25,14 +30,13 @@ body {
     &.custom {
         // width: 80% if needed on mobile
         @media (min-width: $s-med) {
-           width: $s-custom-container; // change value in custom var
+           width: $s-custom-container; // change value in custom variable
         }
     }
 }
 
 .navbar {
     width: 100%;
-    min-height: 75px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -49,12 +53,32 @@ body {
     
 }
 
+.navbar-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid red;
+
+    & li {
+        padding: $r-li-pad;
+    }
+
+    &.list-row li{
+        display: inline-block;
+    }
+
+    &.list-col li{
+        display: block;
+    }
+}
+
 
 /*** Modifier Classes*/
 .r-pad {
     padding: $r-pad;
 }
 
+/* Grid */
 .grid {
     display: flex;
     flex-wrap: nowrap;
