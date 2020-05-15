@@ -8,17 +8,15 @@ $big-w: 75%;
 $med-w: 50%;
 $small-w: 25%;
 
-$full-h: 100%;
-
 /*default spacing*/
-$big-padding: 40px;
-$reg-padding: 20px;
-$small-padding: 10px;
+$big-spacing: 40px;
+$reg-spacing: 20px;
+$small-spacing: 10px;
 
 /* custom sizes */
 $body-w: $full-w;
 $custom-container-w: $big-w;
-$list-item-padding: $small-padding;
+$list-item-padding: $small-spacing;
 
 $navbar-h: 105px;
 
@@ -45,7 +43,7 @@ a{
 
 img {
     width: auto;
-    height: $full-h;
+    height: $full-w;
     margin: 0;
     padding: 0;
 }
@@ -54,13 +52,18 @@ img {
 /*** Container Classes */
 .container {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto $big-spacing;
+    border: 1px solid red;
 
     &.custom {
         // width: 80% if needed on mobile
         @media (min-width: $screen-med-w) {
-           width: $custom-container-w; // change value in custom variable
+           width: $custom-container-w; 
         }
+    }
+
+    &.space-in {
+        padding: $reg-spacing;
     }
 }
 
@@ -70,12 +73,25 @@ img {
     margin: 0;
     padding: 0;
     display: flex;
+    display: -webkit-box;  
+    display: -ms-flexbox;  
+    display: -webkit-flex; 
+
     flex-direction: row; // default direction
+    -webkit-box-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
     align-items: center; //default alignment
+    -webkit-box-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
 
     &.col {
         @media (min-width: $screen-med-w) {
             flex-direction: row;
+            -webkit-box-flex-direction: row;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
             width:25%;
             min-height: 100vh;
         }
@@ -113,6 +129,19 @@ img {
     }
 }
 
+.content-box {
+    width: 100%;
+    padding: $reg-spacing;
+    flex-basis: $small-w;
+    flex-grow: 1;
+    border: 1px solid red;
+
+    &.space-none {
+        padding: 0;
+    }
+
+}
+
 
 /*** Modifier Classes*/
 
@@ -121,46 +150,92 @@ img {
     width: $full-w;
 }
 
+.med-w {
+    width: $med-w;
+}
+
 
 /* Spacing */
 .space-in {
-    padding: $reg-padding;
+    padding: $reg-spacing;
 }
 
 /* Grid */
 .d-grid {
     display: flex;
-    flex-wrap: nowrap;
+    display: -webkit-box;  
+    display: -ms-flexbox;  
+    display: -webkit-flex;
+    
+    flex-direction: column; //default
+    -webkit-box-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+
+    flex-wrap: wrap;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+
+    &.resp {
+        @media (min-width: $screen-med-w) {
+            flex-direction: row;
+            -webkit-box-flex-direction: row;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+        }
+    }
 }
 
 .d-row {
     flex-direction: row;
+    -webkit-box-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
 }
 
 .d-col {
     flex-direction: column;
+    -webkit-box-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
 }
 
 .d-end {
     justify-content: flex-end;
+    -webkit-box-justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
 }
 
 .d-center-s {
     @media (min-width: $screen-med-w) {
         justify-content: center;
+        -webkit-box-justify-content: center;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
     }
 }
 
 .d-center-m {
     justify-content: center;
+    -webkit-box-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
 }
 
 .d-between-s {
     @media (min-width: $screen-med-w) {
         justify-content: space-between;
+        -webkit-box-justify-content: space-between;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
     }
 }
 
 .d-between-m {
     justify-content: space-between;
+    -webkit-box-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
 }
