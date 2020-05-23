@@ -9,9 +9,11 @@ $s-med: 48rem;
 /*default sizes*/
 $s-body: 100%;
 $r-custom-container-w: 80%;
+$r-custom-side-container-w: 25%;
 $r-custom-navbar-h: 75px;
 
 $r-pad: 20px; 
+$r-marg: 30px;
 $r-li-pad: 10px; 
 
 
@@ -26,6 +28,7 @@ $r-li-pad: 10px;
 }
 
 body {
+    min-height: 200vh;
     width: $s-body;
     margin: 0 auto;
     padding: 0;
@@ -46,30 +49,61 @@ body {
     /* custom size*/
     &.custom {
         width: $r-custom-container-w;
+
+        & .navbar {
+            width: 100%;
+        }
     }
 
-    &.sticky-bottom {
+    &.sticky {
         position: fixed;
         left: 0;
-        bottom: 0;
+        top: 0;
         margin: 0;
+        z-index: 200;
+        
+        &.custom {
+            left: 50% - ($r-custom-container-w / 2);
+
+            & .navbar {
+                width: 100%;
+            }
+        }
+
+        & + .container {
+            margin-top: $r-marg;
+
+            @media (min-width: $s-med) {
+                margin-top: $r-custom-navbar-h;
+            }
+        }
+
+        &.bottom {
+            bottom: 0;
+        }
+
+        @media (min-width: $s-med) {
+            &.left {
+                width: $r-custom-side-container-w;
+                height: 100vh;
+    
+                & + .container {
+                    width: 100% - $r-custom-side-container-w;
+                    margin-left: $r-custom-side-container-w;
+                }
+            }
+        }
+    }
+
+    &.content-custom {
+        & .navbar {
+            width: $r-custom-container-w;
+            margin: 0 auto;
+        }
     }
 
     & .container.custom {
         margin-bottom: 0;
-    }
-
-    /* for including sticky content*/
-    &.navbar-sticky, &.sticky-bottom{
-        height: $r-custom-navbar-h;
-    }
-
-    /* for adapting sticky content with site's body in custom container*/
-    &.content-custom.navbar-sticky, &.content-custom.sticky-bottom {      
-        & .navbar {
-            width: $r-custom-container-w;
-            left: (100% - $r-custom-container-w) / 2;
-        }
     }
 }
 
@@ -87,19 +121,6 @@ body {
 
     @media (min-width: $s-med) {
         display: flex;
-    }
-
-    &.sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-
-    
-    &.sticky-bottom {
-        position: fixed;
-        bottom: 0;
-        left: 0;
     }
 
     &.col {

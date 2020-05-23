@@ -12,6 +12,7 @@
   box-sizing: border-box; }
 
 body {
+  min-height: 200vh;
   width: 100%;
   margin: 0 auto;
   padding: 0; }
@@ -25,23 +26,40 @@ body {
   width: 100%;
   margin: 0 auto 20px;
   border: 1px solid red;
-  /* custom size*/
-  /* for including sticky content*/
-  /* for adapting sticky content with site's body in custom container*/ }
+  /* custom size*/ }
   .container.custom {
     width: 80%; }
-  .container.sticky-bottom {
+    .container.custom .navbar {
+      width: 100%; }
+  .container.sticky {
     position: fixed;
     left: 0;
-    bottom: 0;
-    margin: 0; }
+    top: 0;
+    margin: 0;
+    z-index: 200; }
+    .container.sticky.custom {
+      left: 10%; }
+      .container.sticky.custom .navbar {
+        width: 100%; }
+    .container.sticky + .container {
+      margin-top: 30px; }
+      @media (min-width: 48rem) {
+        .container.sticky + .container {
+          margin-top: 75px; } }
+    .container.sticky.bottom {
+      bottom: 0; }
+    @media (min-width: 48rem) {
+      .container.sticky.left {
+        width: 25%;
+        height: 100vh; }
+        .container.sticky.left + .container {
+          width: 75%;
+          margin-left: 25%; } }
+  .container.content-custom .navbar {
+    width: 80%;
+    margin: 0 auto; }
   .container .container.custom {
     margin-bottom: 0; }
-  .container.navbar-sticky, .container.sticky-bottom {
-    height: 75px; }
-  .container.content-custom.navbar-sticky .navbar, .container.content-custom.sticky-bottom .navbar {
-    width: 80%;
-    left: 10%; }
 
 /* for including nav menu, logo menu, pagination...*/
 .navbar {
@@ -56,14 +74,6 @@ body {
   @media (min-width: 48rem) {
     .navbar {
       display: flex; } }
-  .navbar.sticky {
-    position: fixed;
-    top: 0;
-    left: 0; }
-  .navbar.sticky-bottom {
-    position: fixed;
-    bottom: 0;
-    left: 0; }
   @media (min-width: 48rem) {
     .navbar.col {
       flex-direction: column;
