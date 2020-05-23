@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch src -o src/dist"
+    "scss": "node-sass --watch src -o dist"
   },
   "repository": {
     "type": "git",
