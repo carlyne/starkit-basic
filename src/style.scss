@@ -1,16 +1,26 @@
-/*** Custom  variables*/
+/**
+*
+* Custom variables 
+*/
+
 /* media query */
 $s-med: 48rem;
 
 /*default sizes*/
 $s-body: 100%;
-$s-custom-container: 80%;
+$r-custom-container-w: 80%;
+$r-custom-navbar-h: 75px;
+
 $r-pad: 20px; 
 $r-li-pad: 10px; 
 
 
 
-/*** Global */
+/**
+*
+* Global 
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -22,48 +32,79 @@ body {
 }
 
 
-/*** Container Classes */
+/**
+*
+* Containers 
+*/
+
+/* full screen width container */
 .container {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
+    border: 1px solid red;
 
+    /* custom size*/
     &.custom {
-        // width: 80% if needed on mobile
-        @media (min-width: $s-med) {
-           width: $s-custom-container; // change value in custom variable
+        width: $r-custom-container-w;
+    }
+
+    & .container.custom {
+        margin-bottom: 0;
+    }
+
+    /* for including sticky content*/
+    &.sticky {
+        height: $r-custom-navbar-h;
+    }
+
+    /* for adapting sticky content with site's body in custom container*/
+    &.content-custom.sticky {      
+        & .navbar {
+            width: $r-custom-container-w;
+            left: (100% - $r-custom-container-w) / 2;
         }
     }
 }
 
+
+/* for including nav menu, logo menu, pagination...*/
 .navbar {
     width: 100%;
+    height: $r-custom-navbar-h;
+    padding: $r-pad;
     margin: 0;
-    padding: 0;
     display: flex;
-    flex-direction: row; // default direction
-    border: 1px solid red;
+    align-items: center;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 1px solid blue;
 
     &.col {
         @media (min-width: $s-med) {
-            flex-direction: row;
+            flex-direction: column;
             width:25%;
-            min-height: 100vh;
+            height: 100vh;
         }
     }
-    
 }
 
+/* to handle menus items*/
 .navbar-menu {
     margin: 0;
     padding: 0;
+    /*display: none;*/
     list-style-type: none;
     border: 1px solid red;
 
-    & li {
-        padding: $r-li-pad;
+    @media (min-width: $s-med) {
+        display: block;
     }
 
-    &.list-row li{
+    & li {
+        padding: $r-li-pad;
+        text-align: center;
         display: inline-block;
     }
 
@@ -73,21 +114,40 @@ body {
 }
 
 
-/*** Modifier Classes*/
+/**
+*
+* Modifier  
+*/
+
 .r-pad {
     padding: $r-pad;
 }
 
-/* Grid */
-.grid {
+
+/**
+*
+* Grid
+*/
+
+/* structure position*/
+.d-grid {
     display: flex;
     flex-wrap: nowrap;
 }
 
-.row {
+.d-row {
     flex-direction: row;
 }
 
-.col {
+.d-col {
     flex-direction: column;
+}
+
+/* element position */
+.d-end {
+    justify-content: flex-end;
+}
+
+.d-center {
+    justify-content: center;
 }
