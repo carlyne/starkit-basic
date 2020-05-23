@@ -48,17 +48,24 @@ body {
         width: $r-custom-container-w;
     }
 
+    &.sticky-bottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+    }
+
     & .container.custom {
         margin-bottom: 0;
     }
 
     /* for including sticky content*/
-    &.sticky {
+    &.navbar-sticky, &.sticky-bottom{
         height: $r-custom-navbar-h;
     }
 
     /* for adapting sticky content with site's body in custom container*/
-    &.content-custom.sticky {      
+    &.content-custom.navbar-sticky, &.content-custom.sticky-bottom {      
         & .navbar {
             width: $r-custom-container-w;
             left: (100% - $r-custom-container-w) / 2;
@@ -73,13 +80,27 @@ body {
     height: $r-custom-navbar-h;
     padding: $r-pad;
     margin: 0;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: row;
-    position: fixed;
-    top: 0;
-    left: 0;
     border: 1px solid blue;
+
+    @media (min-width: $s-med) {
+        display: flex;
+    }
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    
+    &.sticky-bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
 
     &.col {
         @media (min-width: $s-med) {

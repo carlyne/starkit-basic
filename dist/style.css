@@ -30,11 +30,16 @@ body {
   /* for adapting sticky content with site's body in custom container*/ }
   .container.custom {
     width: 80%; }
+  .container.sticky-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 0; }
   .container .container.custom {
     margin-bottom: 0; }
-  .container.sticky {
+  .container.navbar-sticky, .container.sticky-bottom {
     height: 75px; }
-  .container.content-custom.sticky .navbar {
+  .container.content-custom.navbar-sticky .navbar, .container.content-custom.sticky-bottom .navbar {
     width: 80%;
     left: 10%; }
 
@@ -44,13 +49,21 @@ body {
   height: 75px;
   padding: 20px;
   margin: 0;
-  display: flex;
+  display: none;
   align-items: center;
   flex-direction: row;
-  position: fixed;
-  top: 0;
-  left: 0;
   border: 1px solid blue; }
+  @media (min-width: 48rem) {
+    .navbar {
+      display: flex; } }
+  .navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0; }
+  .navbar.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0; }
   @media (min-width: 48rem) {
     .navbar.col {
       flex-direction: column;
