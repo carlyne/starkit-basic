@@ -1,0 +1,35 @@
+/* default media query */
+$screen-med-w: 48rem;
+$screen-big-w: 62rem;
+
+
+/*default sizes*/
+$full-w: 100%;
+$big-w: 75%;
+$med-w: 50%;
+$small-w: 25%;
+$xsmall-w: 15%;
+
+
+/*default spacing*/
+$big-spacing-in: 40px;
+$reg-spacing-in: 20px;
+$small-spacing-in: 10px;
+
+$big-spacing-out: 60px;
+$reg-spacing-out: 40px;
+$small-spacing-out: 20px;
+
+/* custom sizes */
+$body-w: $full-w;
+$custom-container-w: $big-w;
+$list-item-padding: $small-spacing-in;
+
+$navbar-h: 105px;
+
+/*typeface */
+$head-font: serif;
+$body-font: sans-serif;
+
+/*colors*/
+$main-color: #ca3e47;
